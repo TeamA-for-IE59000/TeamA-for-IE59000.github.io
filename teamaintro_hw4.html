@@ -8,6 +8,8 @@
 <script>var __pbpa = true;</script>
 <script type="text/javascript" async="" src="https://apis.google.com/js/plusone.js" gapi_processed="true"></script>
 <script src="https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.en.YsyEBndsOvI.O/m=plusone/rt=j/sv=1/d=1/ed=1/am=AQ/rs=AGLTcCPtVjHDTzrRDQ-ve2b8lbMe_YwLZw/t=zcms/cb=gapi.loaded_0" async=""></script>
+<script type="text/javascript" src="java.js"></script>
+<script type="text/javascript" src="stylesheet_hw4.css"></script>
 <script src="http://l.yimg.com/ss/rapid-3.18.1.js"></script>
 <!--end of the script-->
 <title>Tableau Visualization</title>
@@ -42,7 +44,14 @@
 	</div>
 </div>
 <div id="content" class="visualization_hw4">
-			
+	<!-- IMPORTANT GUIDELINES
+1. div #canvas wraps this html block. 
+2. div #canvas-svg is used for svg rendering. It can be placed anywhere here.
+3. Do not define an html page here, i.e. including html, head, body tags. -->
+
+	<div id="tooltip-container"></div>
+
+	<div id="canvas-svg"></div>
 </div>
 
 <script>
