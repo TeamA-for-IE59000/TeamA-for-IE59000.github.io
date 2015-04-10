@@ -95,7 +95,7 @@ var svg = d3.select("#canvas-svg").append("svg")
     .attr("width", width)
     .attr("height", height);
 
-d3.tsv("https://s3-us-west-2.amazonaws.com/vida-public/geo/us-state-names.tsv", function(error, names) {
+d3.tsv("data.tsv", function(error, names) {
 
 name_id_map = {};
 id_name_map = {};
@@ -311,7 +311,7 @@ function makeMap(us) {
       .attr("d", path);
 }
 
-d3.json("https://s3-us-west-2.amazonaws.com/vida-public/geo/us.json", function(error, us) {
+d3.json("us.json", function(error, us) {
   makeMap(us);
   makeBars(data);
 });
