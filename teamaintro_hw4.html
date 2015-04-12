@@ -8,34 +8,281 @@
 <script type="text/javascript" async="" src="https://apis.google.com/js/plusone.js" gapi_processed="true"></script>
 <script src="https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.en.YsyEBndsOvI.O/m=plusone/rt=j/sv=1/d=1/ed=1/am=AQ/rs=AGLTcCPtVjHDTzrRDQ-ve2b8lbMe_YwLZw/t=zcms/cb=gapi.loaded_0" async=""></script>
 
-<script type="text/javascript" src="java.js"></script>
-<script type="text/javascript" src="stylesheet_hw4.css"></script>
 <script src="http://l.yimg.com/ss/rapid-3.18.1.js"></script>
+<script type="text/javascript" src="chart.js"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <!--end of the script-->
 <title>Tableau Visualization</title>
 
 <style>
 
-.counties {
-  fill: none;
+/**
+ * Variable power
+ */
+
+// color stuff
+$c-bg             : #fff;
+$c-baseColor      : #333;
+$c-baseColorBright: #666;
+
+$c-border           : #eee;
+$c-borderDark       : $c-baseColor;
+$c-borderBright     : adjust-lightness( $c-baseColor, 30 );
+$c-borderBrightPlus : adjust-lightness( $c-baseColor, 50 );
+$c-shadow           : $c-baseColor;
+$c-dashedLine       : adjust-lightness( $c-baseColor, 40 );
+
+$c-borderDevider : $c-borderBright;
+
+$c-red  : #d79d91;
+$c-blue : #6bb7c7;
+
+// font-stuff
+$f-family : sans-serif;
+
+// sizes
+$f-baseSize               : 14px;
+
+$f-sizeHeadline           : 2 * $f-baseSize;
+$f-sizeSubHeadline        : $f-baseSize;
+
+$f-sizePieChartPercentage : 3 * $f-baseSize;
+$f-sizePieChartText       : 2 * $f-baseSize;
+
+$f-sizeBubbleLabel : 0.9 * $f-baseSize;
+$f-sizeBubbleValue : 1.5 * $f-baseSize;
+
+// weights
+$f-weight            : 100;
+$f-weightHeadline    : $f-weight;
+$f-weightSubHeadline : 400;
+
+$f-weightPieChartPercentage : 100;
+
+// spacing
+$f-spacing : 1px;
+
+// dimensions
+$d-chartHeight : 400px;
+
+// set base styles
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+} 
+
+body {
+  font-size: $f-baseSize;
+  font-family: $f-family;
+  font-weight: $f-weight;
+
+  background-color: #ccc;
+  background-image: linear-gradient(transparent 50%, rgba(255,255,255,.5) 25%);
+  background-size: 4px 4px;
+  
+  ul {
+    list-style: none;
+  }
+  
+  ul, li {
+    margin: 0;
+    padding: 0;
+  }
 }
 
-.states {
+.chart {
+  min-height: $d-chartHeight;
+  border-bottom: 1px solid $c-border;
+
+  padding: 1em;
+}
+
+.chart--headline, .chart--subHeadline {
+  text-align: center;
+}
+
+.chart--headline {
+  position: relative;
+  
+  font-weight: $f-weightHeadline;
+  font-size: $f-sizeHeadline;
+
+  &:before {
+    position: absolute;
+    content: '';
+    
+    bottom: 133%;
+    left: 50%;
+    
+    width: 25%;
+    margin: 0 0 0 -12.5%;
+    
+    border-top: 1px dashed $c-dashedLine;
+  }
+}
+
+.chart--subHeadline {
+  font-weight: $f-weightSubHeadline;
+  font-size: $f-sizeSubHeadline;
+  letter-spacing: $f-spacing;
+}
+
+.charts--container {
+  background-color: $c-bg;
+  width: 100%;
+  
+  @media screen and (min-width: 700px) {
+    max-width: 700px;
+    
+    left : 50%;
+    top : 10%;
+    margin: 5em auto; 
+    
+    box-shadow: 0 2em 2em $c-shadow;
+  }
+}
+
+.charts--headline {
+  text-align: center;
+  color: #444;
+  background-color: #fff;
+  padding: 1em;
+}
+
+.lineChart--area {
+  fill: url(#lineChart--gradientBackgroundArea);
+}
+
+.lineChart--areaLine {
+  fill   : none;
+  stroke : $c-blue;
+  stroke-width: 3;
+}
+
+.lineChart--bubble--label {
   fill: none;
+  stroke: $c-blue;
+  
+  font-size: $f-sizeBubbleLabel;
+  font-style: italic;
+  font-weight: $f-weight;
+}
+
+.lineChart--bubble--value {
+  fill: #fff;
   stroke: #fff;
-  stroke-linejoin: round;
+  
+  font-size: $f-sizeBubbleValue;
+  font-weight: $f-weight;
+}
+.lineChart--circle {
+  fill: $c-blue;
+  stroke: #fff;
+  stroke-width: 3;
 }
 
-.q0-9 { fill:rgb(247,251,255); }
-.q1-9 { fill:rgb(222,235,247); }
-.q2-9 { fill:rgb(198,219,239); }
-.q3-9 { fill:rgb(158,202,225); }
-.q4-9 { fill:rgb(107,174,214); }
-.q5-9 { fill:rgb(66,146,198); }
-.q6-9 { fill:rgb(33,113,181); }
-.q7-9 { fill:rgb(8,81,156); }
-.q8-9 { fill:rgb(8,48,107); }
+.lineChart--circle__highlighted {
+  fill: #fff;
+  stroke: adjust-lightness( $c-blue, -15 );
+}
+
+.lineChart--gradientBackgroundArea--top {
+  stop-color   : $c-blue;
+  stop-opacity : 0.1;
+}
+
+.lineChart--gradientBackgroundArea--bottom {
+  stop-color   : $c-blue;
+  stop-opacity : 0.6;
+}
+
+.lineChart--svg {
+  border: 1px solid $c-border;
+}
+
+// d3.js doesn't let me BEM it. :(
+.lineChart--xAxisTicks, .lineChart--xAxis, .lineChart--yAxisTicks {
+  .domain {
+    display: none;
+  }
+}
+
+.lineChart--xAxis {
+  .tick {
+    line {
+      display: none;
+    }
+  }
+}
+
+.lineChart--xAxisTicks, .lineChart--yAxisTicks {
+  .tick {
+    line {
+      fill: none;
+      stroke: $c-borderBrightPlus;
+      stroke-width: 1;
+      stroke-dasharray: 2,2;
+    }
+  }
+}
+
+.pieChart--center--innerCircle {
+  fill: #fff;
+}
+
+.pieChart--center--text {
+  font-size: $f-sizePieChartText;
+}
+
+.pieChart--center--outerCircle {
+  fill: rgba( 255, 255, 255, 0.75 );
+}
+
+.pieChart--detail--divider {
+  stroke: $c-borderDevider;
+  stroke-width: 1;
+}
+
+.pieChart--detail--percentage {
+  font-size: $f-sizePieChartPercentage;
+  font-weight: $f-weightPieChartPercentage;
+  
+  fill: $c-baseColor;
+  stroke-width: 1px;
+}
+
+.pieChart--detail--textContainer {
+  background-color: transparent;
+  padding: 10px 0 0 0;
+  margin: 0;
+  
+  color: $c-baseColorBright;
+  font-style: italic;
+}
+
+.pieChart--detail__left {
+  text-align: left;
+}
+
+.pieChart--detail__right {
+  text-align: right;
+}
+
+.pieChart__blue {
+  fill: $c-blue;
+}
+
+.pieChart__red {
+  fill: $c-red;
+}
+
+/**
+ * Helper classes
+ */ 
+
+.hidden {
+  display: none;
+}
 
 </style>
 
@@ -69,71 +316,51 @@
 
 
 <div id="content" class="visualization_hw4">
-
-
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="http://d3js.org/queue.v1.min.js"></script>
-<script src="http://d3js.org/topojson.v1.min.js"></script>
-<script>
-
-var width = 960,
-    height = 600;
-
-var rateById = d3.map();
-
-var quantize = d3.scale.quantize()
-    .domain([0, .15])
-    .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
-
-var projection = d3.geo.albersUsa()
-    .scale(1280)
-    .translate([width / 2, height / 2]);
-
-var path = d3.geo.path()
-    .projection(projection);
-
-var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height);
-
-queue()
-    .defer(d3.json, "/mbostock/raw/4090846/us.json")
-    .defer(d3.tsv, "unemployment.tsv", function(d) { rateById.set(d.id, +d.rate); })
-    .await(ready);
-
-function ready(error, us) {
-  svg.append("g")
-      .attr("class", "counties")
-    .selectAll("path")
-      .data(topojson.feature(us, us.objects.counties).features)
-    .enter().append("path")
-      .attr("class", function(d) { return quantize(rateById.get(d.id)); })
-      .attr("d", path);
-
-  svg.append("path")
-      .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
-      .attr("class", "states")
-      .attr("d", path);
-}
-
-d3.select(self.frameElement).style("height", height + "px");
-
-</script>
-
+<h1 class="charts--headline">Wanna check the code?<br>Click "Edit this pen" in left bottom corner.</h1>
+<div class="charts--container">
+  <ul>
+    <li class="chart">
+      <h3 class="chart--subHeadline">Chart 1</h3>
+      <h2 class="chart--headline">Pie Question Would Go Here</h2>
+      <div id="pieChart">
+        <svg id="pieChartSVG">
+          <defs>
+            <filter id='pieChartInsetShadow'>
+              <feOffset dx='0' dy='0'/>
+              <feGaussianBlur stdDeviation='3' result='offset-blur' />
+              <feComposite operator='out' in='SourceGraphic' in2='offset-blur' result='inverse' />
+              <feFlood flood-color='black' flood-opacity='1' result='color' />
+              <feComposite operator='in' in='color' in2='inverse' result='shadow' />
+              <feComposite operator='over' in='shadow' in2='SourceGraphic' />
+            </filter>
+            <filter id="pieChartDropShadow">
+              <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur" />
+              <feOffset in="blur" dx="0" dy="3" result="offsetBlur" />
+              <feMerge>
+                <feMergeNode />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+        </svg>
+      </div>
+    </li>
+    <li class="chart">
+      <h3 class="chart--subHeadline">Chart 2</h3>
+      <h2 class="chart--headline">Area Label Would Go Here</h2>
+      <div id="lineChart">
+        <svg id="lineChartSVG" class="lineChart--svg">
+          <defs>
+            <linearGradient id="lineChart--gradientBackgroundArea" x1="0" x2="0" y1="0" y2="1">
+              <stop class="lineChart--gradientBackgroundArea--top" offset="0%" />
+              <stop class="lineChart--gradientBackgroundArea--bottom" offset="100%" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </li>
+  </ul>
 </div>
 
-<!--commenting box-->
-<div class="fb-comments" data-href="http://teama-for-ie59000.github.io/teamaintro_hw4.html" data-width="600" data-numposts="5" data-colorscheme="light"></div>
-
-<!--google analytics-->
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-61759754-1', 'auto');
-  ga('send', 'pageview');
-</script>
 </body>
 </html>
