@@ -212,14 +212,15 @@ function hashchange(fallback) {
 }
 
 function load(f) {
-  fetcher = f;
-  var h = /^(https?:)?\/\//.test(fetcher)
-      ? "#" + encodeURIComponent(fetcher)
-      : "";
-  if (fetcher != null) d3.select("#text").property("value", fetcher);
-  if (location.hash !== h) location.hash = h;
-  if (h) getURL(fetcher, parseHTML);
-  else if (fetcher) parseText(fetcher);
+  // fetcher = f;
+  // var h = /^(https?:)?\/\//.test(fetcher)
+  //     ? "#" + encodeURIComponent(fetcher)
+  //     : "";
+  // if (fetcher != null) d3.select("#text").property("value", fetcher);
+  // if (location.hash !== h) location.hash = h;
+  // if (h) getURL(fetcher, parseHTML);
+  // else if (fetcher) 
+  parseText(fetcher);
 }
 
 d3.select("#random-palette").on("click", function() {
