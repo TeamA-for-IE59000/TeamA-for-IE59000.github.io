@@ -19,7 +19,7 @@ var layout = d3.layout.cloud()
     .size([w, h])
     .fontSize(function(d) { return fontSize(+d.value); })
     .text(function(d) { return d.key; })//Returns an array containing the property names of the specified object (an associative array). The order of the returned array is undefined.
-    .on("word", function(d) { console.log(d); return progress;})
+    .on("word", progress)
     .on("end", draw);
 
 var svg = d3.select("#vis").append("svg")
@@ -57,7 +57,7 @@ var stopWords = /^(i|me|my|myself|we|us|our|ours|ourselves|you|your|yours|yourse
     htmlTags = /(<[^>]*?>|<script.*?<\/script>|<style.*?<\/style>|<head.*?><\/head>)/g,
     matchTwitter = /^https?:\/\/([^\.]*\.)?twitter\.com/;
 
-hashchange("//www.jasondavies.com/wordcloud/about/");
+hashchange("http://www.nuforc.org/webreports/ndxe201502.html");
 
 function parseHTML(d) {
   parseText(d.replace(htmlTags, " ").replace(/&#(x?)([\dA-Fa-f]{1,4});/g, function(d, hex, m) {
@@ -89,9 +89,9 @@ function getURL(url, callback) {
   }
 }
 
-function proxy(url, callback) {
-  d3.text("//www.jasondavies.com/xhr?url=" + encodeURIComponent(url), callback);
-}
+// function proxy(url, callback) {
+//   d3.text("//www.jasondavies.com/xhr?url=" + encodeURIComponent(url), callback);
+// }
 
 function flatten(o, k) {
   if (typeof o === "string") return o;
