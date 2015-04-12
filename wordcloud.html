@@ -54,7 +54,7 @@ a.active { text-decoration: none; color: #000; font-weight: bold; cursor: text; 
   <div id="presets"></div>
   <div id="custom-area">
     <p><textarea id="text"></textarea>
-    <button id="go" type="submit">Submit</button>
+    <button id="go" type="submit">Go!</button>
   </div>
 </div>
 
@@ -67,6 +67,23 @@ a.active { text-decoration: none; color: #000; font-weight: bold; cursor: text; 
   <p><label>Download:</label>
     <a id="download-svg" href="#" target="_blank">SVG</a> |
     <a id="download-png" href="#" target="_blank">PNG</a>
+</div>
+
+<div style="float: left">
+  <p><label>Spiral:</label>
+    <label for="archimedean"><input type="radio" name="spiral" id="archimedean" value="archimedean" checked="checked"> Archimedean</label>
+    <label for="rectangular"><input type="radio" name="spiral" id="rectangular" value="rectangular"> Rectangular</label>
+  <p><label for="scale">Scale:</label>
+    <label for="scale-log"><input type="radio" name="scale" id="scale-log" value="log" checked="checked"> log n</label>
+    <label for="scale-sqrt"><input type="radio" name="scale" id="scale-sqrt" value="sqrt"> √n</label>
+    <label for="scale-linear"><input type="radio" name="scale" id="scale-linear" value="linear"> n</label>
+  <p><label for="font">Font:</label> <input type="text" id="font" value="Impact">
+</div>
+
+<div id="angles">
+  <p><input type="number" id="angle-count" value="5" min="1"> <label for="angle-count">orientations</label>
+    <label for="angle-from">from</label> <input type="number" id="angle-from" value="-60" min="-90" max="90"> °
+    <label for="angle-to">to</label> <input type="number" id="angle-to" value="60" min="-90" max="90"> °
 </div>
 
 <hr style="clear: both">
