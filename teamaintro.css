@@ -21,10 +21,6 @@ div {
 	display: inline-block;
 }
 
-.post {
-
-}
-
 a {
 	text-decoration: none;
 	color: #6E6E6E;
@@ -72,6 +68,6 @@ ul.header_category li {
 	font-family: 'Open Sans', sans-serif;
 }
 
-svg {
-	position: absolute;
+body {
+	display: inline;
 }
