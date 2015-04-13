@@ -328,6 +328,58 @@ body {
 
 
 <div id="content" class="visualization_hw4">
+
+<script src="d3.js"></script>
+<script src="d3.layout.cloud.js"></script>
+<script type="text/javascript">
+  var fill = d3.scale.category20();
+
+  var ufoData = [],
+      width = 1000,
+      height = 1000,
+      randomRotate = d3.scale.linear().domain([0,1]).range([-90,90]);
+  
+  //extract data from data.csv
+  d3.csv("data.csv", function(data) {
+    // data.forEach( function (d) {
+    //   ufoData.push(d.text); //extract the list of keywords
+    //   // console.log(d);
+    //   // ufoData.push(d.frequency);
+    //   // d.size = +d.size;
+    // });
+
+    d3.layout.cloud()
+    .size([1000, 1000])
+    .words(data)
+    .padding(3)
+    .rotate(function() { return randomRotate(Math.random())})
+    .font("Open Sans")
+    .fontSize(function(d) { return d.size; })      
+    .on("end", draw)
+    .start();
+  });
+
+  function draw(words) {
+    d3.select("body").append("svg")
+        .attr("width", 1000)
+        .attr("height", 1000)
+        .attr("class", "wordcloud")
+        .append("g")
+        //the transformation prevents the words from cutting off the edge
+        .attr("transform", "translate(150,150)")
+        .selectAll("text")
+        .data(words)
+        .enter().append("text")
+        .style("font-size", function(d) { return d.size + "px"; })
+        .style("font-family", "Impact")
+        .style("fill", function(d, i) { return fill(i); })
+        .attr("text-anchor", "middle")
+        .attr("transform", function(d) {
+          return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+        })
+        .text(function(d) { return d.text; });
+  }
+</script>
 </div>
 
 
