@@ -11,6 +11,7 @@
 <script src="http://l.yimg.com/ss/rapid-3.18.1.js"></script>
 <script type="text/javascript" src="chart.js"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<!--Google Analytics--Zixu reserved-->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -21,7 +22,8 @@
   ga('send', 'pageview');
 
 </script>
-<!--end of the script-->
+<!--Google Analytics--Zixu reserved-->
+
 <title>Tableau Visualization</title>
 
 <style>
@@ -300,6 +302,8 @@ body {
 </head>
 
 <body>
+
+<!--commenting box--Zixu reserved-->
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -307,8 +311,8 @@ body {
   js = d.createElement(s); js.id = id;
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-</script>
+}(document, 'script', 'facebook-jssdk'));</script>
+<!--commenting box--Zixu reserved-->
 
 <div id="container">
 	<div id="header">
@@ -319,7 +323,11 @@ body {
 			<li></li>
 			<li><a href="teamaintro_dataset.html" style="text-decoration: none; color: #6E6E6E;">Dataset</a></li>
 			<li><a href="teamaintro_visualization.html" style="text-decoration: none; color: #6E6E6E;">HW3</a></li>
-			<li><a href="teamintro_hw4.html" style="text-decoration: none; color: #6E6E6E;">HW4</a></li>
+<<<<<<< HEAD
+			<li><a href="teamaintro_hw4.html" style="text-decoration: none; color: #6E6E6E;">HW4</a></li>
+=======
+			<li><a href="wordcloud.html" style="text-decoration: none; color: #6E6E6E;">HW4</a></li>
+>>>>>>> origin/master
 			<li><a href="teamaintro_people.html" style="text-decoration: none; color: #6E6E6E;">People</a></li>
 			<li><a href="teamaintro_people.html" style="text-decoration: none; color: #6E6E6E;">Contact</a></li>
 		</ul>
@@ -328,67 +336,57 @@ body {
 
 
 <div id="content" class="visualization_hw4">
-
-<script src="d3.js"></script>
-<script src="d3.layout.cloud.js"></script>
-<script type="text/javascript">
-  var fill = d3.scale.category20();
-
-  var ufoData = [],
-      width = 1000,
-      height = 1000,
-      randomRotate = d3.scale.linear().domain([0,1]).range([-90,90]);
-  
-  //extract data from data.csv
-  d3.csv("data.csv", function(data) {
-    // data.forEach( function (d) {
-    //   ufoData.push(d.text); //extract the list of keywords
-    //   // console.log(d);
-    //   // ufoData.push(d.frequency);
-    //   // d.size = +d.size;
-    // });
-
-    d3.layout.cloud()
-    .size([1000, 1000])
-    .words(data)
-    .padding(3)
-    .rotate(function() { return randomRotate(Math.random())})
-    .font("Open Sans")
-    .fontSize(function(d) { return d.size; })      
-    .on("end", draw)
-    .start();
-  });
-
-  function draw(words) {
-    d3.select("body").append("svg")
-        .attr("width", 1000)
-        .attr("height", 1000)
-        .attr("class", "wordcloud")
-        .append("g")
-        //the transformation prevents the words from cutting off the edge
-        .attr("transform", "translate(150,150)")
-        .selectAll("text")
-        .data(words)
-        .enter().append("text")
-        .style("font-size", function(d) { return d.size + "px"; })
-        .style("font-family", "Impact")
-        .style("fill", function(d, i) { return fill(i); })
-        .attr("text-anchor", "middle")
-        .attr("transform", function(d) {
-          return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-        })
-        .text(function(d) { return d.text; });
-  }
-</script>
+<h1 class="charts--headline">Wanna check the code?<br>Click "Edit this pen" in left bottom corner.</h1>
+<div class="charts--container">
+  <ul>
+    <li class="chart">
+      <h3 class="chart--subHeadline">Chart 1</h3>
+      <h2 class="chart--headline">Pie Question Would Go Here</h2>
+      <div id="pieChart">
+        <svg id="pieChartSVG">
+          <defs>
+            <filter id='pieChartInsetShadow'>
+              <feOffset dx='0' dy='0'/>
+              <feGaussianBlur stdDeviation='3' result='offset-blur' />
+              <feComposite operator='out' in='SourceGraphic' in2='offset-blur' result='inverse' />
+              <feFlood flood-color='black' flood-opacity='1' result='color' />
+              <feComposite operator='in' in='color' in2='inverse' result='shadow' />
+              <feComposite operator='over' in='shadow' in2='SourceGraphic' />
+            </filter>
+            <filter id="pieChartDropShadow">
+              <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur" />
+              <feOffset in="blur" dx="0" dy="3" result="offsetBlur" />
+              <feMerge>
+                <feMergeNode />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+        </svg>
+      </div>
+    </li>
+    <li class="chart">
+      <h3 class="chart--subHeadline">Chart 2</h3>
+      <h2 class="chart--headline">Area Label Would Go Here</h2>
+      <div id="lineChart">
+        <svg id="lineChartSVG" class="lineChart--svg">
+          <defs>
+            <linearGradient id="lineChart--gradientBackgroundArea" x1="0" x2="0" y1="0" y2="1">
+              <stop class="lineChart--gradientBackgroundArea--top" offset="0%" />
+              <stop class="lineChart--gradientBackgroundArea--bottom" offset="100%" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </li>
+  </ul>
 </div>
-
-
 
 <<<<<<< HEAD
 =======
-<!--commenting box-->
+<!--commenting box--Zixu reserved-->
 <div class="fb-comments" data-href="http://teama-for-ie59000.github.io/teamaintro_hw4.html" data-width="600" data-numposts="5" data-colorscheme="light"></div>
-
+<!--commenting box--Zixu reserved-->
 
 >>>>>>> origin/master
 </body>
