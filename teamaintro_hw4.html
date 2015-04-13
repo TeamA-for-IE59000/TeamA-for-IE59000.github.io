@@ -62,11 +62,11 @@
   function draw(words) {
     d3.select("body").append("svg")
         .attr("width", 700)
-        .attr("height", 700)
+        .attr("height", 750)
         .attr("class", "wordcloud")
         .append("g")
         //the transformation prevents the words from cutting off the edge
-        .attr("transform", "translate(150,150)")
+        .attr("transform", "translate(320,400)")
         .selectAll("text")
         .data(words)
         .enter().append("text")
