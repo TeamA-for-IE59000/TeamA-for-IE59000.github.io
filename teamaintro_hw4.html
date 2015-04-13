@@ -49,7 +49,7 @@
     // });
 
     d3.layout.cloud()
-    .size([1000, 1000])
+    .size([700, 700])
     .words(data)
     .padding(3)
     .rotate(function() { return randomRotate(Math.random())})
@@ -61,8 +61,8 @@
 
   function draw(words) {
     d3.select("body").append("svg")
-        .attr("width", 1000)
-        .attr("height", 1000)
+        .attr("width", 700)
+        .attr("height", 700)
         .attr("class", "wordcloud")
         .append("g")
         //the transformation prevents the words from cutting off the edge
