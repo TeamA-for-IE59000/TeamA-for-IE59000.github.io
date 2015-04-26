@@ -32,8 +32,8 @@ var background = svg.append("g"),
     vis = svg.append("g")
     .attr("transform", "translate(" + [w >> 1, h >> 1] + ")");
 
-d3.select("#download-svg").on("click", downloadSVG);
-d3.select("#download-png").on("click", downloadPNG);
+// d3.select("#download-svg").on("click", downloadSVG);
+// d3.select("#download-png").on("click", downloadPNG);
 
 d3.select(window).on("hashchange", hashchange);
 
