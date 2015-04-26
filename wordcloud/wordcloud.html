@@ -1,7 +1,16 @@
 
 <!DOCTYPE html>
 <meta charset="utf-8">
-<title>Word Cloud Generator</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>Border Animation Effect with SVG</title>
+    <meta name="description" content="Border Animation Effect: Recreating the effect seen on carlphilippebrenner.com with SVG" />
+    <meta name="keywords" content="svg, border effect, animated border, line, grid item, hover, css" />
+    <meta name="author" content="Codrops" />
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+<title>Team A - Wordcloud</title>
 <style>
 text:hover { 
   opacity: .7 !important; 
@@ -14,6 +23,10 @@ body {
   margin: auto;
   margin-top: 20px;
   margin-bottom: 1em;
+}
+
+#container {
+  padding: 1em, 2em;
 }
 
 #presets a { border-left: solid #666 1px; padding: 0 10px; }
@@ -33,9 +46,24 @@ a.active { text-decoration: none; color: #000; font-weight: bold; cursor: text; 
 #angles input, #max { width: 42px; }
 </style>
 
+<div id="container" style="text-align: center">
+  <header>
+        <div id="header">
+          <h1>
+            <a href="index-svg.html" class="white">Team A</a>
+          </h1>  
+          <span id="menu">
+            <div class="menu"><span><a href="people.html">People</a></span></div>
+            <div class="menu">Dataset</div>
+            <div class="menu"><a href="tableau.html">Tableau</a></div>
+            <div class="menu"><a href="wordclord.html">D3</a></div>
+          </span>
+        </div><!-- header -->
+  </header>
+</div>
+
+
 <div id="vis">
-
-
 </div>
 
 <form id="form">
@@ -83,10 +111,10 @@ a.active { text-decoration: none; color: #000; font-weight: bold; cursor: text; 
 
 <hr style="clear: both">
 
-
 </form>
 <script src="d3.min.js"></script>
 <script src="unicode.js"></script>
 <script src="d3.layout.cloud.js"></script>
 <script src="cloud.js?1"></script>
 
+</html>

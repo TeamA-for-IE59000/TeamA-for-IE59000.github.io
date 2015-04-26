@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700|Ruthie|Abril+Fatface);
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700|Ruthie);
 @font-face {
 	font-weight: normal;
 	font-style: normal;
@@ -19,6 +19,7 @@ body {
 	/*color: #ecf0f1;
 */	font-size: 100%;
 	line-height: 1.25;
+	2C3E50;
 }
 
 a {
@@ -47,9 +48,8 @@ a.white:hover span {
 
 .container > header {
 	margin: 0 auto;
-	padding: 3em 3.5em 2em 3.5em;
+	padding: 6em 3.5em 2em 3.5em;
 	text-align: center;
-	min-width: 700px;
 }
 
 .container > header h1 {
@@ -58,11 +58,9 @@ a.white:hover span {
 	margin: 0;
 	font-weight: 300;
 	color: #2c3e50;
-	padding-bottom: .3em;
 }
 
 section {
 	padding: 4em 2em;
 	text-align: center;
-	min-width: 700px;
 }
