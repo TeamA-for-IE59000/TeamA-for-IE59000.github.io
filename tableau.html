@@ -1,36 +1,43 @@
-<!doctype html>
-<html>
-<head>
-<script type="text/javascript" src="teamaintro.js"></script>
-<link rel="stylesheet" type="text/css" href="teamaintro.css">
-<link http-equiv="Content-Type" content="text/html; charest=uft-8">
-<!--scripts copied from existing scheme-->
-<script>var __pbpa = true;</script>
-<script type="text/javascript" async="" src="https://apis.google.com/js/plusone.js" gapi_processed="true"></script>
-<script src="https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.en.YsyEBndsOvI.O/m=plusone/rt=j/sv=1/d=1/ed=1/am=AQ/rs=AGLTcCPtVjHDTzrRDQ-ve2b8lbMe_YwLZw/t=zcms/cb=gapi.loaded_0" async=""></script>
-<script src="http://l.yimg.com/ss/rapid-3.18.1.js"></script>
-<!--end of the script-->
-<title>Tableau Visualization</title>
-</head>
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<title>Border Animation Effect with SVG</title>
+		<meta name="description" content="Border Animation Effect: Recreating the effect seen on carlphilippebrenner.com with SVG" />
+		<meta name="keywords" content="svg, border effect, animated border, line, grid item, hover, css" />
+		<meta name="author" content="Codrops" />
+		<link rel="stylesheet" type="text/css" href="test/css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="test/css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="test/css/component.css" />
+		<!--[if IE]>
+  		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
 
-<body>
-<div id="container">
-	<div id="header">
-		<div id="teamname_deco"></div>
-		<div id="teamname"><a href="index.html">TEAM A</a></div>
-		<div style="height: 1px; background-color: #ddd;"></div>
-		<ul class="header_category">
-			<li></li>
-			<li><a href="teamaintro_dataset.html" style="text-decoration: none; color: #6E6E6E;">Dataset</a></li>
-			<li><a href="teamaintro_visualization.html" style="text-decoration: none; color: #6E6E6E;">HW3</a></li>
-			<li><a href="teamaintro_hw4.html" style="text-decoration: none; color: #6E6E6E;">HW4</a></li>
-			<li><a href="teamaintro_people.html" style="text-decoration: none; color: #6E6E6E;">People</a></li>
-			<li><a href="teamaintro_people.html" style="text-decoration: none; color: #6E6E6E;">Contact</a></li>
-		</ul>
-	</div>
-</div>
-<div id="content" class="dataset">
-			<script type='text/javascript' src='https://public.tableau.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 1404px; height: 1149px;'><noscript><a href='#'><img alt='UFO Witness Records in America in Feburary ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bo&#47;Book2_10321&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' width='1404' height='1149' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='site_root' value='' /><param name='name' value='Book2_10321&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bo&#47;Book2_10321&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='showVizHome' value='no' /><param name='showTabs' value='y' /></object></div>
-</div>
-</body>
+		<div class="container">
+			<header>
+				<div id="header">
+					<h1><a href="index-svg.html" class="white"><span>Team A<span></a></h1>	
+					<span id="menu">
+						<div class="menu"><span><a href="people.html">People</a></span></div>
+						<div class="menu">Dataset</div>
+						<div class="menu"><a href="tableau.html">Tableau</a></div>
+						<div class="menu"><a href="wordclord.html">D3</a></div>
+					</span>
+				</div>
+			</header>
+			<section class="demo-1">
+				<div class="grid">
+					<div id="content" class="dataset">
+						<script type='text/javascript' src='https://public.tableau.com/javascripts/api/viz_v1.js'></script>
+						<div class='tableauPlaceholder' style='width: 1404px; height: 1149px;'><noscript><a href='#'><img alt='UFO Witness Records in America in Feburary ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bo&#47;Book2_10321&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' width='1404' height='1149' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='site_root' value='' /><param name='name' value='Book2_10321&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bo&#47;Book2_10321&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='showVizHome' value='no' /><param name='showTabs' value='y' /></object>
+						</div>
+					</div>
+				</div><!-- /grid -->
+			</section>
+		</div><!-- /container -->
+	</body>
 </html>
