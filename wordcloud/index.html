@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Word Cloud Generator</title>
+<style>
+body {
+  position: relative;
+  font-family: "Helvetica Neue", sans-serif;
+  width: 960px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 1em;
+}
+#presets a { border-left: solid #666 1px; padding: 0 10px; }
+#presets a.first { border-left: none; }
+#keyword { width: 300px; }
+#fetcher { width: 500px; }
+#keyword, #go { font-size: 1.5em; }
+#text { width: 100%; height: 100px; }
+p.copy { font-size: small; }
+#form { font-size: small; position: relative; }
+hr { border: none; border-bottom: solid #ccc 1px; }
+a.active { text-decoration: none; color: #000; font-weight: bold; cursor: text; }
+#angles line, #angles path, #angles circle { stroke: #666; }
+#angles text { fill: #333; }
+#angles path.drag { fill: #666; cursor: move; }
+#angles { text-align: center; margin: 0 auto; width: 350px; }
+#angles input, #max { width: 42px; }
+</style>
+
+<div id="vis">
+
+
+</div>
+
+<form id="form">
+
+<p style="position: absolute; right: 0; top: 0" id="status"></p>
+
+<div style="text-align: center">
+  <div id="presets"></div>
+  <div id="custom-area">
+    <p><label for="text">input some text.</label>
+    <p><textarea id="text">
+    At least 14 people have been killed in separate bomb attacks in Egypt's Sinai Peninsula, security forces have said.  Eight people died and 45 others were injured in an explosion outside a police station in El-Arish.  At least six soldiers lost their lives and two were wounded in an attack on an armoured vehicle, near the northern town of Sheikh Zuweid.  Militants from the Sinai Province group, affiliated to Islamic State, have said they carried out the attacks.  Aftermath of a car bomb in El-Arish on 12 April 2015  Hundreds of people gathered around the police station in El-Arish to examine the damage  Egyptian residents and emergency personnel gather at the site of a car bomb in El-Arish on 12 April, 2015.  Rescue teams are searching the rubble for further casualties  Sinai has become increasingly lawless since Egyptian President Hosni Mubarak was overthrown in 2011. Insurgents have intensified attacks since his Islamist successor Mohammed Morsi was ousted in 2013.  North Sinai has been under a state of emergency and a curfew since October, when an attack on a checkpoint killed dozens of soldiers.  Major military operations in the region have so far failed to quell the violence.  Rubble  In El-Arish, residents said the neighbourhood shook as a bomb was detonated outside the police barracks.  "Those at the other end of town heard the explosion. It was humongous. It terrified us," said one resident who lives near the police station.  Witnesses said the vehicle drove through security barriers and rammed the building despite being fired on by security forces.  The three-storey building was badly damaged and nearby homes were also destroyed, with doors ripped off and windows shattered.  In a statement on its Facebook page (in Arabic), the Egyptian interior ministry said a suicide bomber driving a pick-up truck was behind the attack.  "Forces opened fire at the vehicle, which consequently exploded," it added.  The death toll - which included five soldiers and a civilian - rose from six to eight as bodies were pulled from the rubble, officials said.  MAP  Earlier in the day, a roadside bomb struck an army vehicle at Sheikh Zuweid. The military said the attack killed an officer, a sergeant and four soldiers - revising an earlier death toll from seven to six.  A statement on a Twitter page attributed to the Sinai Province group read: "An armoured personnel carrier for the army of the apostates was destroyed... killing and wounding all aboard."  The Sinai Province group was known as Ansar Beit al-Maqdis until it pledged allegiance to Islamic State in November.  It says it is seeking revenge for a police crackdown on Morsi supporters.  Since then it has carried out numerous deadly attacks on the peninsula, killing hundreds of police officers and soldiers, as well as civilians.  Sunday's attacks bring April's death toll to at least 41.
+    </textarea>
+    <button id="go" type="submit">Go!</button>
+  </div>
+</div>
+
+<hr>
+
+<div style="float: right; text-align: right">
+  <p><label for="max">Number of words:</label> <input type="number" value="250" min="1" id="max">
+  <p><label for="per-line"><input type="checkbox" id="per-line"> One word per line</label>
+  <!--<p><label for="colours">Colours:</label> <a href="#" id="random-palette">get random palette</a>-->
+  <p><label>Download:</label>
+    <a id="download-svg" href="#" target="_blank">SVG</a> |
+    <a id="download-png" href="#" target="_blank">PNG</a>
+</div>
+
+<div style="float: left">
+  <p><label>Spiral:</label>
+    <label for="archimedean"><input type="radio" name="spiral" id="archimedean" value="archimedean" checked="checked"> Archimedean</label>
+    <label for="rectangular"><input type="radio" name="spiral" id="rectangular" value="rectangular"> Rectangular</label>
+  <p><label for="scale">Scale:</label>
+    <label for="scale-log"><input type="radio" name="scale" id="scale-log" value="log" checked="checked"> log n</label>
+    <label for="scale-sqrt"><input type="radio" name="scale" id="scale-sqrt" value="sqrt"> √n</label>
+    <label for="scale-linear"><input type="radio" name="scale" id="scale-linear" value="linear"> n</label>
+  <p><label for="font">Font:</label> <input type="text" id="font" value="Impact">
+</div>
+
+<div id="angles">
+  <p><input type="number" id="angle-count" value="5" min="1"> <label for="angle-count">orientations</label>
+    <label for="angle-from">from</label> <input type="number" id="angle-from" value="-60" min="-90" max="90"> °
+    <label for="angle-to">to</label> <input type="number" id="angle-to" value="60" min="-90" max="90"> °
+</div>
+
+<hr style="clear: both">
+
+
+</form>
+<script src="d3.min.js"></script>
+<script src="unicode.js"></script>
+<script src="d3.layout.cloud.js"></script>
+<script src="cloud.js?1"></script>
+
