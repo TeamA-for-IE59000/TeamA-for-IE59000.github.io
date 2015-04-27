@@ -19,6 +19,9 @@ body {
 	/*color: #ecf0f1;
 */	font-size: 100%;
 	line-height: 1.25;
+	border-width: 20px;
+	border-style: solid;
+	border-color: #e1e1e1;
 }
 
 a {
@@ -47,7 +50,7 @@ a.white:hover span {
 .container > header {
 	/*margin: 0 auto;*/
 	padding: 1em 0 1em 0;
-	min-width: 900px;
+	min-width: 1000px;
 }
 
 .container > header {
