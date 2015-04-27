@@ -29,27 +29,47 @@
 	color: #fff;
 	content: "hello";
 }*/
-
-div#menu {
-	min-width: 700px;
-}
-
 .menu {
 	position: relative;
 	display: inline-block;
-	padding: 0em 4em;
-	margin-top: 2em;
+}
+
+.text{
+	/*padding: 0em 2em;*/ /*can cause text-align:left invalid;
+	/*margin-top: 2em;
+	margin-right: 2em;*/
+	margin:0 10px;
 	color: #2c3e50;
 	font-family: "Lato";
 	font-weight: 100;
 	text-transform: uppercase;
 	font-size: 15px;
+	letter-spacing: 1px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	padding-bottom: 12px;
+	width: 130px;
 }
 
-.menu:hover {
+/*.menu a {
+	display: block;
+}*/
+
+.logo {
+	border-bottom-color: #fff;
+}
+
+div.text-left {
+	text-align: left!important;
+}
+
+div.text-right {
+	text-align: right!important;
+}
+/*.menu:hover {
 	background-color: #2c3e50;
 	transition: background 0.3s ease 0s; /*0.3s means duration of the color change, 0s means delay time*/
-}
+
 
 .menu a:hover {
 	color: #fff;
@@ -59,10 +79,11 @@ div#menu {
 h1 {
 	font-family: "Abril Fatface";
 }
-.menu:hover {
+
+/*.menu:hover {
 	border-color: #2c3e50;
 	border-width: 1px;
-}
+}*/
 .box h3 {
 	font-family: "Lato";
 	font-size: 50px;
@@ -178,6 +199,10 @@ h1 {
 .btn a {
 	color: #fff;
 	 font-weight: 100px;
+}
+
+.btn a.selected {
+
 }
 
 .btn {

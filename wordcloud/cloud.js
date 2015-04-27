@@ -52,19 +52,56 @@ d3.select(window).on("hashchange", hashchange);
 // form.selectAll("input[type=radio], #font")
 //     .on("change", generate);
 
+//button for different month of wordcloud
+lastCliked = ".btn1";
+d3.select(".btn1").style("background", "#ccc");
+
 d3.select(".btn1").on("click", function() {
+  if(lastCliked == ".btn1"){
+    return;
+  }
+  //change last click
+  if (lastCliked != false) {
+    d3.select(lastCliked).style("background","#2c3e50");
+  }
+
   load(d3.select(".text1").property("value"));
   d3.event.preventDefault();
+  //change oneself
+  d3.select(this).style("background", "#ccc");
+  //record click
+  lastCliked = ".btn1";
+  
 });
 
 d3.select(".btn2").on("click", function() {
+  //change last click
+  if (lastCliked != false) {
+    d3.select(lastCliked).style("background","#2c3e50");
+  }
+
   load(d3.select(".text2").property("value"));
   d3.event.preventDefault();
+  //change oneself
+  d3.select(".btn2").style("background", "#ccc");
+  //record click
+  lastCliked = ".btn2";
+  
 });
 
 d3.select(".btn3").on("click", function() {
+  //change last click
+  if (lastCliked != false) {
+    d3.select(lastCliked).style("background","#2c3e50");
+  }
+
   load(d3.select(".text3").property("value"));
   d3.event.preventDefault();
+  //change oneself
+  d3.select(this).style("background", "#ccc");
+  //record click
+  lastCliked = ".btn3";
+  
 });
 
 d3.select(".btn4").on("click", function() {
@@ -87,7 +124,7 @@ var stopWords = /^(i|me|my|myself|we|us|our|ours|ourselves|you|your|yours|yourse
 
 hashchange("//www.jasondavies.com/wordcloud/about/");
 
-load(d3.select("#text").property("value"));
+load(d3.select(".text").property("value"));
       // d3.event.preventDefault();
 
 function parseHTML(d) {
