@@ -63,6 +63,7 @@ div.text-right {
 .text:hover {
 	border-color: #16a6b6;
 	color: #16a6b6;
+	transition: all 280ms;
 }
 
 /* hide logo's border*/
