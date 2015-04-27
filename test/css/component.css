@@ -294,7 +294,9 @@ h1 {
   opacity: .7 !important; 
 }
 
-
+#vis {
+	padding: 3em;
+}
 
 /*people*/
 .individual {
