@@ -256,3 +256,14 @@ h1 {
 #form {
 	display: none;
 }
+
+/*people*/
+.individual {
+	display: inline-block;
+	color: #000;
+	padding: 0 9em;
+}
+
+.name {
+	color: #000;
+}
