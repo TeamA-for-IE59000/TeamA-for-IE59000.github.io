@@ -105,13 +105,31 @@ d3.select(".btn3").on("click", function() {
 });
 
 d3.select(".btn4").on("click", function() {
+ //change last click
+  if (lastCliked != false) {
+    d3.select(lastCliked).style("background","#2c3e50");
+  }
+
   load(d3.select(".text4").property("value"));
   d3.event.preventDefault();
+  //change oneself
+  d3.select(this).style("background", "#ccc");
+  //record click
+  lastCliked = ".btn4";
 });
 
 d3.select(".btn5").on("click", function() {
+ //change last click
+  if (lastCliked != false) {
+    d3.select(lastCliked).style("background","#2c3e50");
+  }
+
   load(d3.select(".text5").property("value"));
   d3.event.preventDefault();
+  //change oneself
+  d3.select(this).style("background", "#ccc");
+  //record click
+  lastCliked = ".btn5";
 });
 
 // From Jonathan Feinberg's cue.language, see lib/cue.language/license.txt.
