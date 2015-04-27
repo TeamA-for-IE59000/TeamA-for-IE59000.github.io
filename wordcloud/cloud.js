@@ -124,7 +124,7 @@ var stopWords = /^(i|me|my|myself|we|us|our|ours|ourselves|you|your|yours|yourse
 
 hashchange("//www.jasondavies.com/wordcloud/about/");
 
-load(d3.select(".text").property("value"));
+load(d3.select(".text1").property("value"));
       // d3.event.preventDefault();
 
 function parseHTML(d) {
