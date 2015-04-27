@@ -75,6 +75,10 @@ d3.select(".btn1").on("click", function() {
 });
 
 d3.select(".btn2").on("click", function() {
+    if(lastCliked == ".btn2"){
+    return;
+  }
+  
   //change last click
   if (lastCliked != false) {
     d3.select(lastCliked).style("background","#2c3e50");
@@ -90,6 +94,9 @@ d3.select(".btn2").on("click", function() {
 });
 
 d3.select(".btn3").on("click", function() {
+    if(lastCliked == ".btn3"){
+    return;
+  }
   //change last click
   if (lastCliked != false) {
     d3.select(lastCliked).style("background","#2c3e50");
@@ -105,6 +112,9 @@ d3.select(".btn3").on("click", function() {
 });
 
 d3.select(".btn4").on("click", function() {
+    if(lastCliked == ".btn4"){
+    return;
+  }
  //change last click
   if (lastCliked != false) {
     d3.select(lastCliked).style("background","#2c3e50");
@@ -119,6 +129,9 @@ d3.select(".btn4").on("click", function() {
 });
 
 d3.select(".btn5").on("click", function() {
+    if(lastCliked == ".btn5"){
+    return;
+  }
  //change last click
   if (lastCliked != false) {
     d3.select(lastCliked).style("background","#2c3e50");
