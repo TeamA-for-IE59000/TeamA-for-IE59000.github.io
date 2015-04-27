@@ -175,18 +175,18 @@ function flatten(o, k) {
 function parseText(text) {
   tags = {};
   var cases = {};
-  text.split(d3.select("#per-line").property("checked") ? /\n/g : wordSeparators).forEach(function(word) {
-    if (discard.test(word)) return;
-    word = word.replace(punctuation, "");
-    if (stopWords.test(word.toLowerCase())) return;
-    word = word.substr(0, maxLength);
-    cases[word.toLowerCase()] = word;
-    tags[word = word.toLowerCase()] = (tags[word] || 0) + 1;
-  });
-  tags = d3.entries(tags).sort(function(a, b) { return b.value - a.value; });
-  tags.forEach(function(d) { d.key = cases[d.key]; });
-  generate();
-}
+  //text.split(d3.select("#per-line").property("checked") ? /\n/g : wordSeparators).forEach(function(word) {
+    //if (discard.test(word)) return;
+    //word = word.replace(punctuation, "");
+    //if (stopWords.test(word.toLowerCase())) return;
+    //word = word.substr(0, maxLength);
+    //cases[word.toLowerCase()] = word;
+    //tags[word = word.toLowerCase()] = (tags[word] || 0) + 1;
+  //});
+  //tags = d3.entries(tags).sort(function(a, b) { return b.value - a.value; });
+  //tags.forEach(function(d) { d.key = cases[d.key]; });
+  //generate();
+//}
 
 function generate() {
   layout
