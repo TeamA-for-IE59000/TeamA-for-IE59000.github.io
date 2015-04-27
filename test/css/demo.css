@@ -31,22 +31,6 @@ a {
 	cursor: pointer;
 }
 
-/*Team name*/
-a.white span {
-	color:#2c3e50;
-	text-decoration: none;
-}
-
-/*menu color*/
-a.menu {
-	color:#2c3e50;
-}
-
-a.white:hover span {
-	color: #ccc;
-	text-decoration: none;
-}
-
 .container > header {
 	/*margin: 0 auto;*/
 	padding: 2em 0 4em 0;

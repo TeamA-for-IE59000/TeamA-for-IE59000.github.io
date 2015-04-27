@@ -6,7 +6,7 @@
 	display: inline-block;
 	margin: 10px 10px;
 	/*cursor: pointer;*/
-	color: #2c3e50; /*text color*/
+	color: #16a6b6; /*text color*/
 	box-shadow: inset 0 0 0 4px #fff;
 	-webkit-transition: background 0.4s 0.3s;
 	transition: background 0.4s 0.3s;
@@ -14,21 +14,11 @@
 
 .box:hover {
 	/*background: rgba(255,255,255,0);*/ /*why ",0"*/ /*rhas the same function as line 17*/
-	background: #2c3e50;
+	background: #16a6b6;
 	-webkit-transition-delay: 0s;
 	transition-delay: 0s; /*the transition of the background white*/
 }
 
-/*text {
-	letter-spacing: 1px;
-	color: #2c3e50;
-	display: none;
-}*/
-
-/*text:hover text:after{
-	color: #fff;
-	content: "hello";
-}*/
 .menu {
 	position: relative;
 	display: inline-block;
@@ -113,16 +103,15 @@ h1 {
 
 /*When add .box1:hover a, the reserve color speed of the text-color (from white to dark blue) 
   of "original data" is slower than "-" which is inside a single span tag*/
-.box1:hover span {
+.box:hover span {
 	color: #fff;
 	-webkit-transition-delay: 0s;
 	transition-delay: 0s;
 }
 
 /*the mouseoff effect of the content ends too soon??????*/
-.box1:hover .title1:after {
+.box:hover .title:after {
 	color: #fff;
-	content: "This dataset is one of the web's most comprehensive and up to date UFO information sources, add more description";
 	position: absolute;
 	left: 25px;
 	top: 80px;
@@ -137,12 +126,45 @@ h1 {
 	transition: color 0s ease 0.3s;
 }
 
-.box2:hover h3,
-.box2:hover span,
-.box2:hover a {
-	color: #2c3e50; /*text color after hover*/
-	-webkit-transition-delay: 0s;
-	transition-delay: 0s;
+/*change content when hover*/
+.box1:hover .title1:after {
+	content: "This dataset is one of the web's most comprehensive and up to date UFO information sources, add more description";
+}
+
+.box2:hover .title2:after {
+	content: "Climate Data online or CDO provides access to climate data products through a simple, searchable online web mapping service from 1981-2010 Annual, Monthly and Daily 30-year Normals.";
+}
+
+.box3:hover .title3:after {
+	content: "Supports the acquisition, processing, storage and dissemination of information about water quantity and quality collected at over 1.5 million sites around the U.S. ";
+}
+
+.box4:hover .title4:after {
+	content: "Near real-time earthquake information for a variety of time windows in a variety of formats.The database provide nearly real-time prediction information on earthquake in many formats.";
+}
+
+.box5:hover .title5:after {
+	content: "Provides weather, hydrologic, climate forecasts and warnings for the U.S., and for the protection of life and property and the enhancement of the national economy. ";
+}
+
+.box6:hover .title6:after {
+	content: "The Feed Grains Database contains statistics on four feed grains (corn, grain sorghum, barley, and oats), foreign coarse grains (feed grains plus rye, millet, and mixed grains), hay, and related items.";
+}
+
+.box7:hover .title7:after {
+	content: "The tool provides access to US drought data, forecasts, and information from across federal and state agencies, tribes, universities, and other partners. ";
+}
+
+.box8:hover .title8:after {
+	content: "Find the calorie content of any food or beverage using the Food-a-pedia, looking at the Nutrition Facts label, or checking product or restaurant websites.";
+}
+
+.box9:hover .title9:after {
+	content: "Issues from Jan 1959 to the current date are available in the Image Publication System System (IPS). Monthly issues contain a chronological listing by states of storm occurrences and unusual weather phenomena.";
+}
+
+.box10:hover .title10:after {
+	content: "Includes statistics on residential and commercial building energy consumption,statistics related to construction, building technologies, energy consumption, and building characteristics.";
 }
 
 .box svg {
@@ -153,7 +175,7 @@ h1 {
 
 .box svg line {
 	stroke-width: 3; /*stroke width*/
-	stroke: #2c3e50; /*stroke color, greyish*/
+	stroke: #16a6b6; /*stroke color, greyish*/
 	fill: none; /*the lines doesn't have color*/
 	-webkit-transition: all .5s ease-in-out;
 	transition: all .5s ease-in-out; /*line moving speed*/
